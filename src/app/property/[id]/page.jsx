@@ -29,7 +29,7 @@ export default function PropertyDetails({ params }) {
       <div className="mb-8">
         <PropertyCard
           image={properties?.image || "/cozy.webp"}
-          title={properties?.name}
+          title={properties?.title}
           location={properties?.location}
           price={properties?.price}
           className="h-48 w-full object-cover rounded-lg"

@@ -48,12 +48,12 @@ export default function Home() {
           {/* Properties Grid */}
           {!isLoading && !isError && properties?.length > 0 && (
             <Grid container spacing={4} columns={12}>
-              {properties.map(({ id, image, name, location, price }) => (
+              {properties.map(({ id, image, title, location, price }) => (
                 <Grid size={4} key={id}>
                   <Link href={`/property/${id}`}>
                     <PropertyCard
                       image={image || "/cozy.webp"}
-                      title={name}
+                      title={title}
                       location={location}
                       price={price + " USD"}
                     />
