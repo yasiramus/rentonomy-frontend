@@ -32,7 +32,7 @@ export default function PropertyDetails({ params }) {
           title={properties?.title}
           location={properties?.location}
           price={properties?.price}
-          className="h-48 w-full object-cover rounded-lg"
+          className="!h-48 w-full object-cover rounded-lg"
         />
       </div>
 
@@ -55,31 +55,6 @@ export default function PropertyDetails({ params }) {
           allowFullScreen
           loading="lazy"
         ></iframe>
-      </div>
-      {/* Property Features */}
-      <div className="bg-gray-100 p-4 rounded-lg mt-6">
-        <h3 className="text-lg font-bold text-gray-900">Property Features</h3>
-        <p className="text-gray-800">
-          Bedrooms: {properties?.bedrooms || "N/A"}
-        </p>
-        <p className="text-gray-800">
-          Bathrooms: {properties?.bathrooms || "N/A"}
-        </p>
-        <p className="text-gray-800">
-          Square Footage: {properties?.squareFootage || "N/A"} sqft
-        </p>
-      </div>
-
-      {/* Contact Information */}
-      <div className="bg-gray-100 p-4 rounded-lg mt-6">
-        <h3 className="text-lg font-bold text-gray-900">Contact Information</h3>
-        <p className="text-gray-800">Name: {properties?.agentName || "N/A"}</p>
-        <p className="text-gray-800">
-          Phone: {properties?.agentPhone || "N/A"}
-        </p>
-        <p className="text-gray-800">
-          Email: {properties?.agentEmail || "N/A"}
-        </p>
       </div>
 
       <button

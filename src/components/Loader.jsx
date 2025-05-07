@@ -13,16 +13,16 @@ export function Loader() {
       <div className="bg-gray-300 h-4 w-2/3 rounded mb-6"></div>
 
       {/* Skeleton for Property Features */}
-      <div className="bg-gray-300 h-6 w-1/4 rounded mb-4"></div>
+      {/* <div className="bg-gray-300 h-6 w-1/4 rounded mb-4"></div>
       <div className="bg-gray-300 h-4 w-1/2 rounded mb-2"></div>
       <div className="bg-gray-300 h-4 w-1/3 rounded mb-2"></div>
-      <div className="bg-gray-300 h-4 w-1/4 rounded mb-6"></div>
+      <div className="bg-gray-300 h-4 w-1/4 rounded mb-6"></div> */}
 
       {/* Skeleton for Contact Information */}
-      <div className="bg-gray-300 h-6 w-1/4 rounded mb-4"></div>
+      {/* <div className="bg-gray-300 h-6 w-1/4 rounded mb-4"></div>
       <div className="bg-gray-300 h-4 w-1/2 rounded mb-2"></div>
       <div className="bg-gray-300 h-4 w-1/3 rounded mb-2"></div>
-      <div className="bg-gray-300 h-4 w-1/4 rounded"></div>
+      <div className="bg-gray-300 h-4 w-1/4 rounded"></div> */}
     </div>
   );
 }
@@ -31,7 +31,7 @@ export function LoaderCard() {
   return (
     <Grid container spacing={4} columns={12}>
       {Array.from({ length: 6 }).map((_, index) => (
-        <Grid size={4} key={index}>
+        <Grid size={{xs:12, sm:6, md:4}} key={index}>
           <div className="animate-pulse bg-gray-200 rounded-lg p-4">
             <div className="bg-gray-300 h-48 w-full rounded-lg mb-4"></div>
             <div className="bg-gray-300 h-6 w-3/4 rounded mb-2"></div>
