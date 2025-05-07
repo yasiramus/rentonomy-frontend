@@ -14,6 +14,7 @@ PropertyCard.propTypes = {
 export function PropertyCard({ image, title, location, price }) {
   return (
     <Card className="cursor-pointer hover:shadow-lg transition-shadow">
+      
       <CardMedia component="img" height="200" image={image} alt={title} />
       <CardContent>
         <Typography variant="h6" className="font-bold text-gray-900">

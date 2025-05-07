@@ -3,15 +3,14 @@ import Link from "next/link";
 
 import { Grid } from "@mui/material";
 
+import { useProperties } from "../service";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { LoaderCard } from "../components/Loader";
 import { PropertyCard } from "../components/PropertyCard";
-import { useProperities } from "../service/useProperities";
 
 export default function Home() {
-  const { properties, isLoading, isError } = useProperities();
-
-  console.log(properties, "properties");
+  const { properties, isLoading, isError } = useProperties("properties");
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -36,20 +35,33 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-white mb-6">
             Available Properties
           </h2>
-          <Grid container spacing={4} columns={12}>
-            {properties?.map(({ id, image, name, location, price }, index) => (
-              <Grid size={4} key={index}>
-                <Link href={`/property/${id}`}>
-                  <PropertyCard
-                    image={"/cozy.webp"}
-                    title={name}
-                    location={location}
-                    price={"100USD"}
-                  />
-                </Link>
-              </Grid>
-            ))}
-          </Grid>
+          {/* Skeleton Loader */}
+          {isLoading && <LoaderCard />}
+
+          {/* Error State */}
+          {isError && (
+            <div className="text-center text-red-500 font-semibold">
+              Failed to load properties. Please try again later.
+            </div>
+          )}
+
+          {/* Properties Grid */}
+          {!isLoading && !isError && properties?.length > 0 && (
+            <Grid container spacing={4} columns={12}>
+              {properties.map(({ id, image, name, location, price }) => (
+                <Grid size={4} key={id}>
+                  <Link href={`/property/${id}`}>
+                    <PropertyCard
+                      image={image || "/cozy.webp"}
+                      title={name}
+                      location={location}
+                      price={price + " USD"}
+                    />
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          )}
         </section>
       </main>
       <Footer />

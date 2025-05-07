@@ -2,9 +2,11 @@ import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export function useProperities() {
+export function useProperties(path) {
+  console.log(path, "path");
+
   const { data, error, isLoading } = useSWR(
-    `http://localhost:3001/properties`,
+    `${process.env.NEXT_PUBLIC_PROPERTIES_API_URL}/${path}`,
     fetcher
   );
 
