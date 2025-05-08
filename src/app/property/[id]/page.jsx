@@ -31,7 +31,7 @@ export default function PropertyDetails({ params }) {
           image={properties?.image || "/cozy.webp"}
           title={properties?.title}
           location={properties?.location}
-          price={properties?.price}
+          price={properties?.price || properties?.Prce}
           className="!h-48 w-full object-cover rounded-lg"
         />
       </div>

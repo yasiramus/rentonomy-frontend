@@ -1,9 +1,11 @@
 import React from "react";
 
+import {  CircularProgress } from "@mui/material";
+
 import { Field } from "./Field";
 import { predefinedLocations } from "../../utility/index";
 
-export function Form({ formData, onChange, onSubmit, error }) {
+export function Form({ formData, onChange, onSubmit, error, loading }) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
@@ -52,9 +54,18 @@ export function Form({ formData, onChange, onSubmit, error }) {
       />
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        className="cursor-pointer w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        disabled={loading}
+        style={{
+          backgroundColor: loading ? "#ccc" : "#3b82f6",
+          cursor: loading ? "not-allowed" : "pointer",
+        }}
       >
-        Submit
+       {loading ? (
+          <CircularProgress size={24} className="text-white" />
+        ) : (
+          "Submit"
+        )}
       </button>
     </form>
   );

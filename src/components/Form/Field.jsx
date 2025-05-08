@@ -29,6 +29,7 @@ export function Field({ label, name, type = "text", options = [], ...props }) {
           type={type}
           name={name}
           className="w-full border border-gray-600 rounded-lg p-2 outline-0"
+          value={props.value || ""}
           {...props}
         />
       )}

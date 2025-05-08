@@ -52,21 +52,25 @@ export default function Home() {
           )}
 
           {/* Properties Grid */}
-          {!isLoading && !isError && properties?.length > 0 && (
+          {!isLoading && !isError && properties?.length > 0 ? (
             <Grid container spacing={4}>
-              {properties.map(({ id, image, title, location, price }) => (
-                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={id}>
-                  <Link href={`/property/${id}`}>
-                    <PropertyCard
-                      image={image || "/cozy.webp"}
-                      title={title}
-                      location={location}
-                      price={price}
-                    />
-                  </Link>
-                </Grid>
-              ))}
+              {properties.map(
+                ({ id, image, title, location, price, Price }) => (
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={id}>
+                    <Link href={`/property/${id}`}>
+                      <PropertyCard
+                        image={image || "/cozy.webp"}
+                        title={title}
+                        location={location}
+                        price={price || Price}
+                      />
+                    </Link>
+                  </Grid>
+                )
+              )}
             </Grid>
+          ) : (
+            <div className="text-center text-white font-semibold">No properties found</div>
           )}
         </section>
 
